@@ -61,6 +61,22 @@ def factorial():
         except ValueError as e:
             print(f'Error: {e}')
 
+def square_root():
+    square_root_loop = True
+    while square_root_loop is True:
+        square_root_num = input('Enter a non-negative number (or "exit" to quit): ')
+        if square_root_num == 'exit':
+            square_root_loop = False
+        try:
+            square_root_num = float(square_root_num)
+            if square_root_num < 0:
+                raise ValueError('Input must be a non-negative number')
+            result = math.sqrt(square_root_num)
+            print(f'Square root of {square_root_num} is {result}')
+        except ValueError as e:
+            print(f'Error: {e}')
+
+
 def menu():
     menu_loop = True
     while menu_loop is True:
@@ -70,7 +86,8 @@ Hello and welcome. Choose function:
 
 1) Factorial
 2) Subfactorial
-3) Exit
+3) Square Root
+4) Exit
 <---------------MENU--------------->
 ''')
         choice = input('Enter your choice: ').lower()
@@ -78,15 +95,12 @@ Hello and welcome. Choose function:
             factorial()
         elif choice == '2':
             subfactorial()
-        elif choice == '3' or choice == 'exit':
+        elif choice == '3':
+            square_root()
+        elif choice == '4' or choice == 'exit':
             print('OK, see you soon. Goodbye!')
             menu_loop = False
         else:
             print(f'There is no {choice} punct, try again')
 
 menu()
-
-
-
-
-
